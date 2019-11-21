@@ -1,7 +1,38 @@
 function run() {
     let btn = document.querySelector('#todo-add');
     btn.addEventListener('click', addNewToDo);
+    loadToDos();
 }
+
+function addItem(item){
+    const db = window.localStorage;
+    const list = document.querySelector('#todo-list');
+    const node = document.createRange().createContextualFragment(db.getItem(item));
+    list.appendChild(node);
+}
+
+function loadToDos() {
+    
+    const db = window.localStorage;
+    Object.keys(db).forEach(addItem);
+   
+}
+
+function checkBoxUpdate(cb) {
+    if(cb.checked){
+        cb.setAttribute('checked', cb.checked);
+    }else{
+        cb.removeAttribute('checked');
+    }
+    
+    const itemString = new XMLSerializer().serializeToString(cb.parentNode);
+    const id = cb.id;
+    window.localStorage.setItem(id, itemString);
+
+    }
+    
+
+
 
 function addNewToDo(event) {
     event.preventDefault();
@@ -22,7 +53,12 @@ function addNewToDo(event) {
         input.setAttribute('id', id);
         label.setAttribute('for', id);
 
+        
+
         label.textContent = value;
+        const db = window.localStorage;
+        const itemString = new XMLSerializer().serializeToString(item);
+        db.setItem(id, itemString);
 
         list.appendChild(item);
     }

@@ -1,5 +1,5 @@
 function run() {
-    let btn = document.querySelector('#todo-add');
+        let btn = document.querySelector('#todo-add');
     btn.addEventListener('click', addNewToDo);
     loadToDos();
 }
@@ -64,6 +64,13 @@ function addNewToDo(event) {
     }
 
     todo.value = '';
+}
+
+function tododelete(elem){
+    const key = elem.parentNode.querySelector("input[type=checkbox]").id;
+    const database=window.localStorage;
+    database.removeItem(key);
+    elem.parentNode.remove();
 }
 
 run();

@@ -112,5 +112,26 @@ footer {
     border-top: 0.1em solid lightgray;
 }
 #todo-list > li{
-height:3em;
+height:2em;
+}
+.animationdesigns {
+    animation: stretch 1s ease-in-out 1s alternate infinite none ;
+    transition-property: all;
+    transition-duration: 300ms;
+}
+.animationdesigns:hover{
+    background:green;
+    width: 100%;
+    transform:rotate(+10deg) ;
+    font-family: cursive;
+
+}
+
+@keyframes stretch /* Name */ {
+    0% { background-color:goldenrod;
+        opacity: 2; /* property */
+    }
+    100% {background-color:red;
+        opacity: 3;
+    }
 }

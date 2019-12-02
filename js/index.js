@@ -67,10 +67,16 @@ function addNewToDo(event) {
 }
 
 function tododelete(elem){
-    const key = elem.parentNode.querySelector("input[type=checkbox]").id;
-    const database=window.localStorage;
-    database.removeItem(key);
-    elem.parentNode.remove();
+   elem.parentElement.classList.toggle('deleteList');
+   elem.parentElement.addEventListener('animationend',listnerFunc);
+
+}
+function listnerFunc(event){
+    const key=this.querySelector("input[type=checkbox]").id;
+    const dataobject = window.localStorage;
+    dataobject.removeItem(key);
+    const parent = this.parentElement;
+    parent.removeChild(this);
 }
 
 run();

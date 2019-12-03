@@ -1,3 +1,12 @@
+ @media screen and (max-width: 500px)
+ {
+*,
+*::before,
+*::after
+{
+    color: red;
+}
+ }
  *,
 *::before,
 *::after {
@@ -8,16 +17,32 @@
     color: inherit;
 }
 
+@media screen and (max-width: 500px){
+    html{
+        font-style:italic;
+        font-size: large;
+    }
+}
+ :root {
+     --root-font-size: calc(1rem + (5) * ((100vw - 300px)/ (1080 -300)));
+ }
+
 html {
     box-sizing: border-box;
-    font-size: calc(1rem + (3) * ((100vw - 300px) / (1080 - 300)));
+    font-size: var(--root-font-size, 1rem);
+}
+* :root{
+    --background-color: red;
+} */
+:root{
+    --height: 100%;
 }
 
 :root,
 html,
 body {
     height: 100%;
-    background-color:whitesmoke;
+     background-color:burlywood; 
 }
 
 input[type=checkbox] {
@@ -60,7 +85,7 @@ header, footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-   background-color: whitesmoke;
+   background-color: greenyellow;
 }
 li.deleteList{
     animation: disappear 500ms 1s;

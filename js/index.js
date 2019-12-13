@@ -1,6 +1,12 @@
 function run() {
         let btn = document.querySelector('#todo-add');
     btn.addEventListener('click', addNewToDo);
+    window.addEventListener('online', (event) => {
+        document.getElementById("div").innerHTML = "<p style='color:blue'>Welcome back.</p>";
+    });
+    window.addEventListener('offline', (event) => {
+        document.getElementById("div").innerHTML = "<p style='color:blue'>your web app is offline.</p>";
+         });
     loadToDos();
 }
 
